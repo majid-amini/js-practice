@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Intro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .add,.delete {
+      background: gold;
+      margin: .75rem;
+      padding: .2rem 1rem;
+      color: #515151;
+      border: 1px solid gray;
+      border-radius: .8rem;
+      transition: 300ms;
+      font-size: .7rem;
+    }
+
+    .add:hover {
+      background: dodgerblue;
+      color: snow;
+      cursor: pointer;
+    }
+    .delete:hover {
+      background: red;
+      color: snow;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <main>
+    <h1>JS Intro</h1>
+    <ul id="lister">
+
+    </ul>
+    <button class="add" id="add-person-btn">Add Person</button>
+  </main>
+
+
+  <script>
+
+    const addPersonBtn = document.querySelector("#add-person-btn")
+    const listerUl = document.querySelector("#lister")
+
+    // const persons = []
+    addPersonBtn.addEventListener("click", function () {
+      // 1- add person btn: prompt 
+
+      let person = prompt("Please enter the person name:")
+      // 2- log
+      
+      // 3- add to arary
+
+      // persons.push(person)
+
+      // create element li
+      const liEl = document.createElement("li")
+      liEl.textContent = person
+      const btn = document.createElement('button')
+      btn.classList.add('delete')
+      btn.innerText = 'delete'
+      btn.addEventListener('click',deletefunc)
+      liEl.appendChild(btn)
+      // render li
+      listerUl.appendChild(liEl)
+    })
+
+    function deletefunc (event) {
+      event.target.parentNode.remove()
+    }
+
+    
+
+  </script>
+</body>
+
+</html>
